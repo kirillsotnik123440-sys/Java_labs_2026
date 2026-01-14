@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод чисел
+        System.out.print("Введите число a: ");
+        int a = scanner.nextInt();
+
+        System.out.print("Введите число b: ");
+        int b = scanner.nextInt();
+
+        // Проверка произведения
+        if (a * b > 100) {
+            if (a > b) {
+                a = a * a;   // большее число в квадрат
+                b = b * 2;   // меньшее умножаем на 2
+            } else {
+                b = b * b;
+                a = a * 2;
+            }
+        }
+
+        // Вывод результата
+        System.out.println("Результат:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+
+        scanner.close();
+    }
+}
