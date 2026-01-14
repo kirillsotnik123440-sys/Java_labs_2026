@@ -1,0 +1,84 @@
+import java.util.Arrays;
+
+public class GroupRoom {
+
+    // Поля
+    private int groupId;     // уникальный номер группы
+    private Room[] rooms;   // массив объектов Room
+
+    // Конструктор по умолчанию
+    public GroupRoom() {
+        this.groupId = 0;
+        this.rooms = new Room[0];
+    }
+
+    // Конструктор с массивом объектов
+    public GroupRoom(int groupId, Room[] rooms) {
+        this.groupId = groupId;
+        this.rooms = rooms;
+    }
+
+    // Получить массив
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    // Установить массив
+    public void setRooms(Room[] rooms) {
+        this.rooms = rooms;
+    }
+
+    // Получить объект по индексу
+    public Room getRoom(int index) {
+        return rooms[index];
+    }
+
+    // Установить объект по индексу
+    public void setRoom(int index, Room room) {
+        rooms[index] = room;
+    }
+
+    // Добавление комнаты
+    public void addRoom(Room room) {
+        rooms = Arrays.copyOf(rooms, rooms.length + 1);
+        rooms[rooms.length - 1] = room;
+    }
+
+    // Удаление комнаты по id
+    public void removeRoomById(int id) {
+        Room[] temp = new Room[rooms.length - 1];
+        int index = 0;
+
+        for (Room room : rooms) {
+            if (room.getId() != id) {
+                if (index < temp.length) {
+                    temp[index++] = room;
+                }
+            }
+        }
+        rooms = temp;
+    }
+
+    // Сортировка по цене (по возрастанию)
+    public void sortByPrice() {
+        for (int i = 0; i < rooms.length - 1; i++) {
+            for (int j = i + 1; j < rooms.length; j++) {
+                if (rooms[i].getPrice() > rooms[j].getPrice()) {
+                    Room temp = rooms[i];
+                    rooms[i] = rooms[j];
+                    rooms[j] = temp;
+                }
+            }
+        }
+    }
+
+    // Вывод всей группы
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("GroupRoom ID=" + groupId + "\n");
+        for (Room room : rooms) {
+            sb.append(room).append("\n");
+        }
+        return sb.toString();
+    }
+}

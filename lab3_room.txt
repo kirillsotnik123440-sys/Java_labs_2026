@@ -1,0 +1,69 @@
+public class Room {
+
+    // Поля
+    private int id;                 // идентификатор
+    private String codeNumber;      // код номера
+    private int numberPeople;       // количество человек
+    private String comfortType;     // комфортность
+    private double price;           // цена
+
+    // Конструктор
+    public Room(int id, String codeNumber, int numberPeople,
+                String comfortType, double price) {
+        this.id = id;
+        this.codeNumber = codeNumber;
+        this.numberPeople = numberPeople;
+        this.comfortType = comfortType;
+        this.price = price;
+    }
+
+    // Геттеры и сеттеры
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCodeNumber() {
+        return codeNumber;
+    }
+
+    public void setCodeNumber(String codeNumber) {
+        this.codeNumber = codeNumber;
+    }
+
+    public int getNumberPeople() {
+        return numberPeople;
+    }
+
+    public void setNumberPeople(int numberPeople) {
+        this.numberPeople = numberPeople;
+    }
+
+    public String getComfortType() {
+        return comfortType;
+    }
+
+    public void setComfortType(String comfortType) {
+        this.comfortType = comfortType;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // Переопределение toString()
+    @Override
+    public String toString() {
+        return String.format(
+                "Room [ID=%d, Code=%s, People=%d, Comfort=%s, Price=%.2f]",
+                id, codeNumber, numberPeople, comfortType, price
+        );
+    }
+}
