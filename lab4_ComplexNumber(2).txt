@@ -1,0 +1,52 @@
+public class ComplexNumber {
+    private double real;  // Действительная часть
+    private double imaginary;  // Мнимая часть
+
+    // Конструктор
+    public ComplexNumber(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    // Геттеры и сеттеры для действительной и мнимой части
+    public double getReal() {
+        return real;
+    }
+
+    public void setReal(double real) {
+        this.real = real;
+    }
+
+    public double getImaginary() {
+        return imaginary;
+    }
+
+    public void setImaginary(double imaginary) {
+        this.imaginary = imaginary;
+    }
+
+    // Метод для деления комплексных чисел
+    public ComplexNumber divide(ComplexNumber other) {
+        double denominator = other.real * other.real + other.imaginary * other.imaginary;
+
+        // Проверка на деление на ноль (если знаменатель равен 0)
+        if (denominator == 0) {
+            throw new ArithmeticException("Деление на ноль невозможно");
+        }
+
+        double realPart = (this.real * other.real + this.imaginary * other.imaginary) / denominator;
+        double imaginaryPart = (this.imaginary * other.real - this.real * other.imaginary) / denominator;
+
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+
+    // Метод для отображения комплексного числа в виде строки
+    @Override
+    public String toString() {
+        if (imaginary >= 0) {
+            return real + " + " + imaginary + "i";
+        } else {
+            return real + " - " + Math.abs(imaginary) + "i";
+        }
+    }
+}

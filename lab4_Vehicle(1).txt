@@ -1,0 +1,27 @@
+public class Vehicle {
+
+    private int speed;
+
+    public Vehicle(int speed) {
+        this.speed = speed;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        if (speed >= 0) {
+            this.speed = speed;
+        }
+    }
+
+    public void move() {
+        System.out.println("Транспорт движется со скоростью " + speed + " км/ч");
+    }
+
+    @Override
+    public String toString() {
+        return "Speed=" + speed;
+    }
+}
