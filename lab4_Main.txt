@@ -1,0 +1,28 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Garage garage = new Garage();
+
+        Car car = new Car(60);
+        Bike bike = new Bike(25);
+        Truck truck = new Truck(40);
+
+        garage.addVehicle(car);
+        garage.addVehicle(bike);
+        garage.addVehicle(truck);
+
+        car.accelerate(20);
+        bike.accelerate(10);
+        truck.loadCargo(50);
+
+        System.out.println(garage);
+
+        garage.countVehicles();
+
+        garage.moveAll();
+
+        garage.popVehicle();
+        System.out.println("После удаления одного транспорта:");
+        System.out.println(garage);
+    }
+}

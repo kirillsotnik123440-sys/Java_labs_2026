@@ -1,0 +1,59 @@
+import java.util.Arrays;
+
+public class Garage {
+
+    private Vehicle[] vehicles;
+
+    public Garage() {
+        vehicles = new Vehicle[0];
+    }
+
+    // Безопасное добавление
+    public void addVehicle(Vehicle vehicle) {
+        vehicles = Arrays.copyOf(vehicles, vehicles.length + 1);
+        vehicles[vehicles.length - 1] = vehicle;
+    }
+
+    // Безопасное удаление (Pop)
+    public Vehicle popVehicle() {
+        if (vehicles.length == 0) {
+            return null;
+        }
+
+        Vehicle last = vehicles[vehicles.length - 1];
+        vehicles = Arrays.copyOf(vehicles, vehicles.length - 1);
+        return last;
+    }
+
+    // Подсчёт объектов каждого типа
+    public void countVehicles() {
+        int cars = 0, bikes = 0, trucks = 0;
+
+        for (Vehicle v : vehicles) {
+            if (v instanceof Car) cars++;
+            else if (v instanceof Bike) bikes++;
+            else if (v instanceof Truck) trucks++;
+        }
+
+        System.out.println("Cars: " + cars);
+        System.out.println("Bikes: " + bikes);
+        System.out.println("Trucks: " + trucks);
+    }
+
+    // Изменение скорости всех ТС
+    public void moveAll() {
+        for (Vehicle v : vehicles) {
+            v.move();
+        }
+    }
+
+    // Вывод всей информации
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Garage:\n");
+        for (Vehicle v : vehicles) {
+            sb.append(v).append("\n");
+        }
+        return sb.toString();
+    }
+}

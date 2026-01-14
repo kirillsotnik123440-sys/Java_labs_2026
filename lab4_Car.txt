@@ -1,0 +1,15 @@
+public class Car extends Vehicle {
+
+    public Car(int speed) {
+        super(speed);
+    }
+
+    public void accelerate(int value) {
+        setSpeed(getSpeed() + value);
+    }
+
+    @Override
+    public String toString() {
+        return "Car [" + super.toString() + "]";
+    }
+}
