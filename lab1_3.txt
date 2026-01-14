@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод x
+        System.out.print("Введите x: ");
+        double x = scanner.nextDouble();
+
+        double Y;
+        double F;
+
+        // Вычисление Y
+        if (x <= -3) {
+            Y = Math.pow(x, 3) + 1;
+        } else if (x <= 4) {
+            Y = x * (1 + Math.pow(2, x));
+        } else {
+            Y = Math.tan(x);
+        }
+
+        // Вычисление F
+        if (x <= -3) {
+            F = Math.exp(Math.sin(x));
+        } else if (x <= 4) {
+            F = Math.pow(x, 4);
+        } else {
+            F = Math.pow(Math.tan(x), 1.0 / 5.0); // корень 5-й степени
+        }
+
+        // Вывод результатов
+        System.out.println("Y = " + Y);
+        System.out.println("F = " + F);
+
+        scanner.close();
+    }
+}
