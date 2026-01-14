@@ -1,0 +1,66 @@
+import java.util.Random;
+
+public class Main {
+
+    // Метод создаёт массив обратных значений
+    public static double[] CreateReciprocalFraction(int[] array) {
+        double[] result = new double[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            try {
+                result[i] = 1.0 / array[i];
+            } catch (ArithmeticException e) {
+                System.out.println("Ошибка: деление на ноль в элементе с индексом " + i);
+                result[i] = 0; // можно задать любое значение
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        Random random = new Random();
+
+        // 1. Исходный массив
+        int[] array = new int[10];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(199) - 99; // от -99 до 99
+        }
+
+        // Вывод исходного массива
+        System.out.println("Исходный массив:");
+        for (int x : array) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+
+        // 2. Массив обратных значений
+        double[] reciprocalArray = CreateReciprocalFraction(array);
+
+        System.out.println("Массив обратных значений:");
+        for (double x : reciprocalArray) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+
+        // 3. Массив разрешённых значений
+        int[] allowedValues = { -5, -1, 1, 2, 5 };
+
+        // 4. Подсчёт элементов с разрешёнными значениями
+        int count = 0;
+
+        for (int value : array) {
+            for (int allowed : allowedValues) {
+                if (value == allowed) {
+                    count++;
+                    break;
+                }
+            }
+        }
+
+        // Вывод результата
+        System.out.println("Количество элементов с разрешёнными значениями: " + count);
+    }
+}
