@@ -2,60 +2,42 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-
         Random random = new Random();
-
         int n = 10;
         int[] b = new int[n];
-
-        // Заполнение массива b случайными числами
         for (int i = 0; i < n; i++) {
-            b[i] = random.nextInt(41) - 20; // от -20 до 20
+            b[i] = random.nextInt(41) - 20;
         }
-
-        // Вывод массива b
         System.out.println("Массив b:");
         for (int x : b) {
             System.out.print(x + " ");
         }
         System.out.println();
-
-        // Подсчёт отрицательных элементов
         int count = 0;
         for (int x : b) {
             if (x < 0) {
                 count++;
             }
         }
-
-        // Создание сжатого массива C
         int[] c = new int[count];
         int index = 0;
-
         for (int x : b) {
             if (x < 0) {
                 c[index] = x * 4;
                 index++;
             }
         }
-
-        // Сортировка массива C методом выбора и перестановки
         for (int i = 0; i < c.length - 1; i++) {
             int minIndex = i;
-
             for (int j = i + 1; j < c.length; j++) {
                 if (c[j] < c[minIndex]) {
                     minIndex = j;
                 }
             }
-
-            // Перестановка
             int temp = c[i];
             c[i] = c[minIndex];
             c[minIndex] = temp;
         }
-
-        // Вывод массива C
         System.out.println("Массив C (отрицательные * 4, отсортирован):");
         for (int x : c) {
             System.out.print(x + " ");
