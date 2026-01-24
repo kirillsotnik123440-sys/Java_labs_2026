@@ -2,31 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-
-        // Ввод чисел
         System.out.print("Введите число a: ");
         double a = scanner.nextDouble();
-
         System.out.print("Введите число b: ");
         double b = scanner.nextDouble();
-
-        // Находим наибольшее число
         double max;
         if (a > b) {
             max = a;
         } else {
             max = b;
         }
-
-        // Вычисляем tg(max)
         double d = Math.tan(max);
-
-        // Вывод результата
         System.out.println("max(a, b) = " + max);
         System.out.println("d = tg(max(a, b)) = " + d);
-
         scanner.close();
     }
 }
