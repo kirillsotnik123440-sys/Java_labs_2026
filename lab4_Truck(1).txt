@@ -1,14 +1,10 @@
 public class Truck extends Vehicle {
-
     public Truck(int speed) {
         super(speed);
     }
-
     public void loadCargo(int weight) {
-        // груз снижает скорость
         setSpeed(getSpeed() - weight / 10);
     }
-
     @Override
     public String toString() {
         return "Truck [" + super.toString() + "]";
