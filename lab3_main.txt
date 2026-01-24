@@ -1,22 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-
         Room r1 = new Room(1, "A101", 2, "Standard", 2500);
         Room r2 = new Room(2, "B202", 3, "Comfort", 3500);
         Room r3 = new Room(3, "C303", 1, "Lux", 5000);
-
         GroupRoom group = new GroupRoom();
         group.addRoom(r1);
         group.addRoom(r2);
         group.addRoom(r3);
-
         System.out.println("Исходный список:");
         System.out.println(group);
-
         group.sortByPrice();
         System.out.println("После сортировки по цене:");
         System.out.println(group);
-
         group.removeRoomById(2);
         System.out.println("После удаления комнаты с ID=2:");
         System.out.println(group);
