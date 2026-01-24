@@ -1,35 +1,23 @@
 public class Point {
-    private int x;  // Координата X
-    private int y;  // Координата Y
-
-    // Конструктор без параметров, точка в (0, 0)
+    private int x;
+    private int y;
     public Point() {
         this.x = 0;
         this.y = 0;
     }
-
-    // Конструктор с параметрами для координат (x, y)
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    // Получение координаты X
     public int getX() {
         return x;
     }
-
-    // Получение координаты Y
     public int getY() {
         return y;
     }
-
-    // Метод для вычисления длины вектора от начала координат (0, 0) до точки
     public double vectorLengthFromOrigin() {
-        return Math.sqrt(x * x + y * y);  // Формула длины вектора в 2D: sqrt(x^2 + y^2)
+        return Math.sqrt(x * x + y * y);
     }
-
-    // Преобразование точки в строку "(x, y)"
     @Override
     public String toString() {
         return "(" + x + "," + y + ")";
