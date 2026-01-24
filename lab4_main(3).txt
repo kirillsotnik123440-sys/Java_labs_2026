@@ -1,31 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        // Создаем точку в 2D
         Point point2D = new Point(3, 4);
         System.out.println("Точка 2D: " + point2D);
         System.out.println("Расстояние от начала координат: " + point2D.distanceFromOrigin());
-
-        // Создаем прямоугольник для проверки попадания точки
         Point topLeft = new Point(1, 1);
         Point bottomRight = new Point(5, 5);
         System.out.println("Точка внутри прямоугольника: " + point2D.isInRectangle(topLeft, bottomRight));
-
-        // Создаем точку для проверки попадания в окружность
         Point centerCircle = new Point(0, 0);
         int radius = 5;
         System.out.println("Точка внутри окружности: " + point2D.isInCircle(centerCircle, radius));
-
-        // Создаем точку в 3D
         Point3D point3D = new Point3D(3, 4, 5);
         System.out.println("Точка 3D: " + point3D);
         System.out.println("Расстояние от начала координат: " + point3D.distanceFromOrigin());
-
-        // Создаем трехмерный прямоугольный параллелепипед
         Point3D corner1 = new Point3D(1, 1, 1);
         Point3D corner2 = new Point3D(6, 6, 6);
         System.out.println("Точка внутри параллелепипеда: " + point3D.isInBox(corner1, corner2));
-
-        // Создаем сферу
         Point3D centerSphere = new Point3D(0, 0, 0);
         int sphereRadius = 10;
         System.out.println("Точка внутри сферы: " + point3D.isInSphere(centerSphere, sphereRadius));
