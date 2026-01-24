@@ -1,13 +1,10 @@
 public class Bike extends Vehicle {
-
     public Bike(int speed) {
         super(speed);
     }
-
     public void accelerate(int value) {
         setSpeed(getSpeed() + value);
     }
-
     @Override
     public String toString() {
         return "Bike [" + super.toString() + "]";
