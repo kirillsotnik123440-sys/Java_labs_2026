@@ -1,12 +1,15 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        int n = 10;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите размер массива n: ");
+        int n = sc.nextInt();
         int[] b = new int[n];
         for (int i = 0; i < n; i++) {
-            b[i] = random.nextInt(41) - 20;
+            b[i] = random.nextInt(90) - 40;
         }
         System.out.println("Массив b:");
         for (int x : b) {
