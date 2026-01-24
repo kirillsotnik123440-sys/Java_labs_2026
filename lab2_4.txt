@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class MatrixDiagonals {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите размер матрицы n: ");
+        int n = sc.nextInt();
+        int[][] A = new int[n][n];
+        System.out.println("Введите элементы матрицы:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = sc.nextInt();
+            }
+        }
+        int minMain = A[0][0];
+        int maxMain = A[0][0];
+        for (int i = 0; i < n; i++) {
+            if (A[i][i] < minMain) {
+                minMain = A[i][i];
+            }
+            if (A[i][i] > maxMain) {
+                maxMain = A[i][i];
+            }
+        }
+        int productMain = minMain * maxMain;
+        System.out.println("Произведение min и max главной диагонали: " + productMain);
+        int productSecondary = 1;
+        for (int i = 0; i < n; i++) {
+            productSecondary *= A[i][n - 1 - i];
+        }
+        productSecondary *= maxMain;
+        System.out.println("Произведение побочной диагонали, умноженное на max главной диагонали: "
+                + productSecondary);
+        sc.close();
+    }
+}
