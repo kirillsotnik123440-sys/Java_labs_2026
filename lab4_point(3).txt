@@ -1,52 +1,34 @@
 public class Point {
-    private int x;  // Координата X
-    private int y;  // Координата Y
-
-    // Конструктор без параметров, точка в (0, 0)
+    private int x;
+    private int y;
     public Point() {
         this.x = 0;
         this.y = 0;
     }
-
-    // Конструктор с параметрами для координат (x, y)
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    // Установка новых координат
     public void setLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    // Получение координаты X
     public int getX() {
         return x;
     }
-
-    // Получение координаты Y
     public int getY() {
         return y;
     }
-
-    // Преобразование точки в строку "(x, y)"
     @Override
     public String toString() {
         return "(" + x + "," + y + ")";
     }
-
-    // Расстояние от точки до начала координат (0, 0) по формуле Евклида
     public int distanceFromOrigin() {
         return (int) Math.sqrt(x * x + y * y);
     }
-
-    // Проверка, находится ли точка внутри прямоугольной области
     public boolean isInRectangle(Point topLeft, Point bottomRight) {
         return x >= topLeft.getX() && x <= bottomRight.getX() && y >= topLeft.getY() && y <= bottomRight.getY();
     }
-
-    // Проверка, находится ли точка внутри окружности
     public boolean isInCircle(Point center, int radius) {
         int distanceSquared = (x - center.getX()) * (x - center.getX()) + (y - center.getY()) * (y - center.getY());
         return distanceSquared <= radius * radius;
